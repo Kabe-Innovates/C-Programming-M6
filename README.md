@@ -111,7 +111,7 @@ To write a C Program to store the student information and display it using struc
 
 struct Student {
     char name[20];
-    int rollNumber;
+    long int rollNumber;
     float marks;
 };
 
@@ -119,11 +119,11 @@ int main() {
     struct Student s;
 
     fgets(s.name, sizeof(s.name), stdin);
-    scanf("%d", &s.rollNumber);
+    scanf("%li", &s.rollNumber);
     scanf("%f", &s.marks);
     printf("\n");
     printf("Name: %s", s.name);
-    printf("Roll Number: %d\n", s.rollNumber);
+    printf("Roll Number: %li\n", s.rollNumber);
     printf("Marks: %.2f\n", s.marks);
 
     return 0;
@@ -131,7 +131,8 @@ int main() {
 ```
 
 ## OUTPUT
-![image](https://github.com/user-attachments/assets/601e857a-a4b3-4f62-ab63-a48a657220d8)
+![image](https://github.com/user-attachments/assets/afe24a80-bc03-47fc-ae52-8ba1024c31b4)
+
 
 
 ## RESULT
