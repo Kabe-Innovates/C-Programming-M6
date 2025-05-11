@@ -10,8 +10,27 @@ To write a C Program to find area of rectangle using pointer.
 5.	Stop the program.
 
 ## PROGRAM
+```c
+#include <stdio.h>
 
+int main() {
+    int length, breadth, area;
+    int *pLength, *pBreadth;
+
+    scanf("%d %d", &length, &breadth);
+
+    pLength = &length;
+    pBreadth = &breadth;
+
+    area = (*pLength) * (*pBreadth);
+
+    printf("Area of rectangle = %d\n", area);
+
+    return 0;
+}
+```
 ## OUTPUT
+![image](https://github.com/user-attachments/assets/89a7dbfc-638c-44a8-a7bc-06e0eeb984e3)
 		       	
 
 
@@ -19,7 +38,7 @@ To write a C Program to find area of rectangle using pointer.
 Thus the program to find area of rectangle using pointer has been executed successfully
  
  
-
+<hr>
 
 # EX-27-DYNAMIC-MEMORY-ALLOCATION
 ## AIM
@@ -34,15 +53,42 @@ To write a C Program to print 'WELCOME' using malloc() and free().
 6.	Stop the program.
 
 ## PROGRAM
+```c
+#include <stdio.h>
+#include <stdlib.h>
 
+int main() {
+    char *ptr;
+
+    ptr = (char *)malloc(8 * sizeof(char));
+
+    if (ptr != NULL) {
+        ptr[0] = 'W';
+        ptr[1] = 'E';
+        ptr[2] = 'L';
+        ptr[3] = 'C';
+        ptr[4] = 'O';
+        ptr[5] = 'M';
+        ptr[6] = 'E';
+        ptr[7] = '\0';
+
+        printf("%s\n", ptr);
+
+        free(ptr);
+    }
+
+    return 0;
+}
+```
 ## OUTPUT
 
+![image](https://github.com/user-attachments/assets/300cee4c-31aa-419c-a8ab-5064db6b3cb8)
 
 
 ## RESULT
 Thus the program to print 'WELCOME' using malloc() and free() has been executed successfully
  
-.
+.<hr>
 
 
 
@@ -60,15 +106,38 @@ To write a C Program to store the student information and display it using struc
 4.	Stop the program.
 
 ## PROGRAM
+```c
+#include <stdio.h>
 
+struct Student {
+    char name[20];
+    int rollNumber;
+    float marks;
+};
+
+int main() {
+    struct Student s;
+
+    fgets(s.name, sizeof(s.name), stdin);
+    scanf("%d", &s.rollNumber);
+    scanf("%f", &s.marks);
+    printf("\n");
+    printf("Name: %s", s.name);
+    printf("Roll Number: %d\n", s.rollNumber);
+    printf("Marks: %.2f\n", s.marks);
+
+    return 0;
+}
+```
 
 ## OUTPUT
+![image](https://github.com/user-attachments/assets/601e857a-a4b3-4f62-ab63-a48a657220d8)
 
 
 ## RESULT
 
 Thus the program to store the student information and display it using structure has been executed successfully
- 
+ <hr>
  
 
 
@@ -87,18 +156,45 @@ To write a C Program to read and store the data of 3 employees and calculate the
 5.	Stop the program.
 
 ## PROGRAM
+```c
+#include <stdio.h>
 
+struct Employee {
+    char name[20];
+    int id;
+    float basic, hra, da, gross;
+};
+
+int main() {
+    struct Employee e[3];
+    int i;
+
+    for (i = 0; i < 3; i++) {
+        scanf("%s", e[i].name);
+        scanf("%d", &e[i].id);
+        scanf("%f %f %f", &e[i].basic, &e[i].hra, &e[i].da);
+
+        e[i].gross = e[i].basic + e[i].hra + e[i].da;
+    }
+
+    for (i = 0; i < 3; i++) {
+        printf("Employee %d: %s, ID: %d, Gross Salary: %.2f\n", i + 1, e[i].name, e[i].id, e[i].gross);
+    }
+
+    return 0;
+}
+```
 
  ## OUTPUT
+![image](https://github.com/user-attachments/assets/9fc8ff0b-f609-45ff-84eb-ce70bc2380c6)
 
- 
 
 ## RESULT
 
 Thus the C program to read and store the data of 3 employees and calculate their Gross Salary using the concept of structure
  
 
-
+<hr>
 
 
 # EX – 30 -STUDENTS MARK -TOTAL &AVERAGE USING STRUCURE
@@ -134,15 +230,51 @@ Step 7: Output Loop (i = 0 to 1):
 Step 8: End the program.
 
 ## PROGRAM
+```c
+#include <stdio.h>
 
+struct Student {
+    char name[10];
+    int rollno;
+    int subject[5];
+    int total;
+};
+
+int main() {
+    struct Student s[2];
+    int i, j;
+
+    for (i = 0; i < 2; i++) {
+        scanf("%d", &s[i].rollno);
+
+        for (j = 0; j < 5; j++) {
+            scanf("%d", &s[i].subject[j]);
+        }
+
+        s[i].total = 0;
+
+        for (j = 0; j < 5; j++) {
+            s[i].total += s[i].subject[j];
+        }
+    }
+
+    for (i = 0; i < 2; i++) {
+        printf("Total marks of student %d: %d\n", i + 1, s[i].total);
+        printf("Average: %.2f\n", s[i].total / 5.0);
+    }
+
+    return 0;
+}
+```
 
 ## OUTPUT
+![image](https://github.com/user-attachments/assets/94f49e5b-e269-468b-a4e2-3e683c8ed033)
 
  
 
 ## RESULT
 
 Thus the C program to calculate the total and average of student using structure has been executed successfully.
-	
+	<hr>
 
 
